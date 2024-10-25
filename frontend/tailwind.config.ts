@@ -10,15 +10,12 @@ const config: Config = {
     extend: {
       colors: {
         background: "#1A1A1A",
-        bgShade: "#F5FCFF",
-        textColor: "#160E47",
-        surface: "#FBF8FF",
-        onPrimaryContainer: "#06164B",
-        secondary: "#5A5D72",
-        outline: "#637381",
-        tableStripe: "#F7FBFD",
-        onSurface: "#F9FCFF",
-        navbarText: "#1C1E53",
+        secondary: "#2B2B2B",
+        navbarText: "#4FC3F7",
+        text_color: '#afadad',
+        title_color: '#eae3e3',
+        input_border_color: '#D6DDED',
+        footerBg: '#051c32',
       },
       fontFamily: {
         Roboto: ["Roboto", "sans-serif"],
