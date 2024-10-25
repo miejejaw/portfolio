@@ -1,16 +1,17 @@
 import Image from "next/image";
+import {forwardRef, Ref} from "react";
 
-const Home = () => {
+const Home = forwardRef<HTMLElement, {}>((props, ref: Ref<HTMLElement>) => {
     return (
-        <section className="relative h-screen container mx-auto">
+        <section ref={ref} className="relative h-screen container mx-auto">
             {/* Background Image */}
-            <Image src='/background.svg' alt='background' layout='fill' objectFit='cover'/>
+            <Image src='/background.svg' alt='background' layout='fill' objectFit='cover' priority={true}/>
 
             {/* Main Content - Positioned Person Image and Text */}
             <div
                 className="absolute top-[130px] left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-6">
                 {/* Person Image */}
-                <Image src='/avatar.svg' alt='avatar' width={202} height={197}/>
+                <Image src='/avatar.svg' alt='avatar' width={202} height={197} priority={true}/>
 
                 {/* Text Content */}
                 <article className="text-center">
@@ -25,13 +26,13 @@ const Home = () => {
                 </article>
 
                 {/* Contact Button */}
-                <button
-                    className="border border-accent rounded-3xl text-white font-bold py-2 px-12 mt-8 hover:cursor-pointer transition">
-                    Contact Me
-                </button>
+                {/*<button*/}
+                {/*    className="border border-accent rounded-3xl text-white font-bold py-2 px-12 mt-8 hover:cursor-pointer transition">*/}
+                {/*    Contact Me*/}
+                {/*</button>*/}
             </div>
         </section>
     )
-}
+})
 
 export default Home;

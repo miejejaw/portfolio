@@ -1,10 +1,11 @@
-import {forwardRef} from "react";
+import {forwardRef, Ref} from "react";
+import {SectionTitle} from "@/components/SectionTitle";
 
-const About = forwardRef((props, ref) => {
+const About = forwardRef<HTMLElement, {}>((props, ref: Ref<HTMLElement>) => {
     return (
-        <section className='text-center mx-auto mt-4 max-w-4xl'>
-            <h1 className='text-5xl font-bold'>About Me</h1>
-            <span className='bg-gradient-to-r from-blue-400 to-white bg-clip-text text-transparent text-sm font-semibold'>Get to know me</span>
+        <section ref={ref} className='text-center mx-auto mt-4 max-w-4xl'>
+            <SectionTitle title='About Me' description='Get to know me'/>
+
 
             <div className='mt-12 text-text_color space-y-6 text-md font-extralight'>
                 <p className=''>

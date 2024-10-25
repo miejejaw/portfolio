@@ -1,71 +1,64 @@
-import {forwardRef} from "react";
+import {forwardRef, Ref} from "react";
+import { SectionTitle } from "@/components/SectionTitle";
 
 const projects = [
     {
-        title: 'Real-time chat application',
-        description: 'This is a description for project 1',
-        image: '/avatar.svg'
+        title: "Real-time chat",
+        description: "This is a description for project 1",
+        image: "/projects/real-time-chat.png",
     },
     {
-        title: 'Digital Library',
-        description: 'This is a description for project 2',
-        image: '/avatar.svg'
+        title: "Vertex",
+        description: "This is a description for project 2",
+        image: "/projects/vertex.png",
     },
     {
-        title: 'E-commerce website',
-        description: 'This is a description for project 3',
-        image: '/avatar.svg'
+        title: "Handwritten text converter",
+        description: "This is a description for project 3",
+        image: "/projects/handwritten-text-converter.png",
     },
     {
-        title: 'Blog website',
-        description: 'This is a description for project 4',
-        image: '/avatar.svg'
+        title: "Eskalate",
+        description: "This is a description for project 4",
+        image: "/projects/eskalate.png",
     },
     {
-        title: 'Portfolio website',
-        description: 'This is a description for project 5',
-        image: '/avatar.svg'
-    },
-    {
-        title: 'Social media website',
-        description: 'This is a description for project 6',
-        image: '/avatar.svg'
+        title: "Digital Library",
+        description: "This is a description for project 5",
+        image: "/projects/digital-library.png",
     },
 ];
 
-const Projects = forwardRef((props, ref) => {
+const Projects = forwardRef<HTMLElement, {}>((props, ref: Ref<HTMLElement>) => {
     return (
-        <section className='mt-48 flex flex-col justify-center items-center w-[80%] mx-auto'>
-            <h1 className="text-4xl font-bold">Projects</h1>
-            <span className="mt-2 mb-12 bg-gradient-to-r from-blue-400 to-white bg-clip-text text-transparent font-semibold">
-                Some of my Works
-            </span>
+        <section ref={ref} className="mt-48 flex flex-col justify-center items-center w-[80%] mx-auto">
+            <SectionTitle title="projects" description="Some of my Works" />
 
             {/* Projects grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
                 {projects.map((project, index) => (
-                    <article key={index} className=''>
+                    <article
+                        key={index}
+                        className="bg-secondary rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                    >
                         <img
                             src={project.image}
                             alt={`Image of ${project.title}`}
-                            className='object-cover w-full h-[200px]'
+                            className="object-cover w-full h-[200px] transition-opacity duration-300 hover:opacity-90"
                         />
-                        <div className="p-2">
-                            <h3 className="text-text_color text-lg font-semibold mb-1">{project.title}</h3>
-                            <p className="text-sm text-text_color">{project.description}</p>
+                        <div className="p-4">
+                            <h3 className="text-title_color text-xl font-semibold mb-2 font-Roboto">
+                                {project.title}
+                            </h3>
+                            <p className="text-text_color text-sm font-serif">
+                                {project.description}
+                            </p>
                         </div>
                     </article>
                 ))}
             </div>
-
-            {/*view all*/}
-            {/*<button className="min-w-[200px] mt-16 mb-12 border border-nav_border_color py-2 px-4 rounded-3xl hover:bg-blue-500">*/}
-            {/*    View All*/}
-            {/*</button>*/}
         </section>
     );
 });
-
-Projects.displayName = 'Projects';
 
 export default Projects;
